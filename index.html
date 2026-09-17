@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЛР 2 - UI Елементи</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Компоненти програмної інженерії: Лабораторна робота 2</h1>
+        <p>Дослідження базових UI елементів та їх призначення (у заданому порядку).</p>
+
+        <!-- 1. Radiobutton -->
+        <div class="element-block">
+            <h3>1. Radiobutton (Радіокнопка)</h3>
+            <div class="form-group">
+                <input type="radio" id="course3" name="course" value="3" checked>
+                <label for="course3" class="inline-label">3 курс</label>
+                <input type="radio" id="course4" name="course" value="4">
+                <label for="course4" class="inline-label">4 курс</label>
+            </div>
+            <p><strong>Призначення:</strong> Вибір лише одного варіанту з декількох запропонованих. Якщо обрано інший
+                пункт, попередній вибір скасовується.</p>
+        </div>
+
+        <!-- 2. Checkbox -->
+        <div class="element-block">
+            <h3>2. Checkbox (Прапорець)</h3>
+            <div class="form-group">
+                <input type="checkbox" id="backend" checked>
+                <label for="backend" class="inline-label">Backend</label>
+                <input type="checkbox" id="frontend">
+                <label for="frontend" class="inline-label">Frontend</label>
+            </div>
+            <p><strong>Призначення:</strong> Дозволяє користувачу вибрати один, декілька або жодного варіанту з наданого
+                списку. Також використовується для увімкнення/вимкнення певних опцій.</p>
+        </div>
+
+        <!-- 3. Text input -->
+        <div class="element-block">
+            <h3>3. Text input (Текстове поле)</h3>
+            <div class="form-group">
+                <input type="text" id="demo-input" placeholder="Введіть довільний текст...">
+            </div>
+            <p><strong>Призначення:</strong> Елемент для введення короткого, однорядкового тексту користувачем
+                (наприклад, імені, пошукового запиту тощо).</p>
+        </div>
+
+        <!-- 4. Tabs -->
+        <div class="element-block">
+            <h3>4. Tabs (Вкладки)</h3>
+            <div class="tabs">
+                <button class="tab-btn active" onclick="openTab(event, 'tab1')">Опис</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab2')">Приклад</button>
+            </div>
+            <div id="tab1" class="tab-content" style="display: block;">
+                <p><strong>Призначення:</strong> Дозволяють організувати контент у розділи, перемикання між якими
+                    відбувається без перезавантаження сторінки. Це допомагає зекономити місце на екрані.</p>
+            </div>
+            <div id="tab2" class="tab-content">
+                <p>Ви зараз переглядаєте контент другої вкладки.</p>
+            </div>
+        </div>
+
+        <!-- 5. Button -->
+        <div class="element-block">
+            <h3>5. Button (Кнопка)</h3>
+            <button class="action-btn" onclick="alert('Кнопку натиснуто!')">Натиснути</button>
+            <p><strong>Призначення:</strong> Ініціація певної дії після натискання: відправка форми, відкриття вікна,
+                підтвердження вибору тощо.</p>
+        </div>
+
+        <!-- 6. Text label -->
+        <div class="element-block">
+            <h3>6. Text label (Текстова мітка)</h3>
+            <div class="form-group">
+                <label for="demo-input" class="highlight-label">Це Text Label, який прив'язаний до поля у пункті 3
+                    (натисніть на текст)</label>
+            </div>
+            <p><strong>Призначення:</strong> Пояснює користувачеві, які дані очікуються. Якщо мітка правильно пов'язана
+                з полем (через атрибут `for`), натискання на неї автоматично переносить фокус на відповідний елемент.
+            </p>
+        </div>
+
+        <!-- 7. Link -->
+        <div class="element-block">
+            <h3>7. Link (Посилання)</h3>
+            <a href="https://kpi.ua" target="_blank" class="custom-link">Офіційний сайт КПІ</a>
+            <p><strong>Призначення:</strong> Забезпечення навігації. Перенаправляє користувача на іншу сторінку,
+                зовнішній ресурс або певну частину поточної веб-сторінки.</p>
+        </div>
+
+        <!-- 8. Tooltip -->
+        <div class="element-block">
+            <h3>8. Tooltip (Підказка)</h3>
+            <p>Наведіть курсор на це <span class="tooltip">підкреслене слово<span class="tooltip-text">Це спливаюча
+                        підказка (Tooltip)</span></span>, щоб побачити пояснення.</p>
+            <p><strong>Призначення:</strong> Надання додаткової контекстної інформації при наведенні курсору на елемент.
+                Дозволяє не перевантажувати основний інтерфейс зайвим текстом.</p>
+        </div>
+
+        <!-- 9. Dropdown list -->
+        <div class="element-block">
+            <h3>9. Dropdown list (Випадний список)</h3>
+            <div class="form-group">
+                <select id="specialty">
+                    <option value="" disabled selected>Оберіть спеціальність...</option>
+                    <option value="121">121 - Інженерія програмного забезпечення</option>
+                    <option value="122">122 - Комп'ютерні науки</option>
+                    <option value="123">123 - Комп'ютерна інженерія</option>
+                </select>
+            </div>
+            <p><strong>Призначення:</strong> Компактне відображення списку опцій. Дозволяє користувачеві вибрати одне
+                значення з багатьох, не займаючи багато місця на сторінці.</p>
+        </div>
+
+        <!-- 10. Data grid -->
+        <div class="element-block">
+            <h3>10. Data grid (Таблиця даних)</h3>
+            <table class="data-grid">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Мова програмування</th>
+                        <th>Основне застосування</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Python</td>
+                        <td>Backend, ML, Data Science</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>C#</td>
+                        <td>Enterprise, Backend, GameDev</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>SQL</td>
+                        <td>Робота з базами даних</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>Призначення:</strong> Структуроване відображення масивів інформації у вигляді рядків та стовпців
+                для зручного читання, аналізу та порівняння даних.</p>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+
+</html>
